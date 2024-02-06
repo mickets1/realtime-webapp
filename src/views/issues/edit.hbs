@@ -1,0 +1,13 @@
+<h1>
+  <span class="far fa-edit"></span> Edit
+</h1>
+
+<form method="post" action="./{{viewData.id}}/update">
+  <input type="hidden" name="id" value="{{viewData.id}}" />
+  <div class="form-group">
+    <p>Edits an issue in Gitlab.</p>
+    <input type="text" class="form-control" name="title" placeholder="Updated issue title here" value="{{viewData.title}}" required="required" autofocus="autofocus" /><br>
+    <input type="text" class="form-control" name="description" placeholder="Updated issue description here" value="{{viewData.description}}" required="required" autofocus="autofocus" />
+  </div>
+  <button type="submit" class="btn btn-lg btn-primary">Update Task</button>
+</form>

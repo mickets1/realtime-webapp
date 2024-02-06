@@ -1,0 +1,44 @@
+<h1>
+    <span class="far fa-list-alt"></span> Issues
+</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Issues</th>
+            <th>Close/Edit</th>
+        </tr>
+    </thead>
+    <tbody id="issue-list">
+        {{#if viewData.issues.length}}
+        {{#each viewData.issues}}
+        <tr>
+            <td class="w-100">Issue#: {{this.id}}<br>Title: {{this.title}}<br>Desciption: {{this.description}}</td>
+            <td>
+                <div class="flex">
+                    <a href="./{{this.id}}/close"><span class="far fa-check"></span></a>
+                    <a href="./{{this.id}}/edit"><span class="far fa-edit"></span></a>
+                </div>
+            </td>
+        {{/each}}
+        {{else}}
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center text-danger">
+                There are no tasks to display.
+            </td>
+        </tr>
+        {{/if}}
+    </tbody>
+</table>
+
+{{!-- Socket.io: Template for the Client. The same as above but with \ before {{}} to not process it on the server-side --}}
+<template id="issue-template">
+    <td class="w-100">Issue#: \{{this.id}}<br>Title: \{{this.title}}<br>Desciption: \{{this.description}}</td>
+    <td>
+        <div class="flex">
+            <a href="./\{{this.id}}/close"><span class="far fa-check"></span></a>
+            <a href="./{{this.id}}/edit"><span class="far fa-edit"></span></a>
+        </div>  
+    </td>
+</template>
